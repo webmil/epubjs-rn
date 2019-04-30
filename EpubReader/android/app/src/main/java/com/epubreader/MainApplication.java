@@ -3,11 +3,11 @@ package com.epubreader;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.wonday.orientation.OrientationPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.rnziparchive.RNZipArchivePackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.futurepress.staticserver.FPStaticServerPackage;
-import com.github.yamill.orientation.OrientationPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -30,11 +30,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new OrientationPackage(),
             new RNFetchBlobPackage(),
             new RNZipArchivePackage(),
             new RNCWebViewPackage(),
             new FPStaticServerPackage(),
-            new OrientationPackage(),
             new VectorIconsPackage()
       );
     }
