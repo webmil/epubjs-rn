@@ -272,6 +272,7 @@ window.onerror = function (message, file, line, col, error) {
         var startPosition = { x: -1, y: -1 };
         var currentPosition = { x: -1, y: -1 };
         var isLongPress = false;
+        var preventTap = false;
         var longPressTimer;
         var touchduration = 300;
         var $body = doc.getElementsByTagName('body')[0];
