@@ -56,9 +56,9 @@ class Epub extends Component<{}> {
     this._isMounted = true;
     AppState.addEventListener('change', this._handleAppStateChange.bind(this));
 
-    Orientation.addSpecificOrientationListener(this._orientationDidChange.bind(this));
+    Orientation.addOrientationListener(this._orientationDidChange.bind(this));
     let orientation = Orientation.getInitialOrientation();
-    if (orientation && (orientation === "PORTRAITUPSIDEDOWN" || orientation === "UNKNOWN")) {
+    if (orientation && (orientation === "PORTRAIT-UPSIDEDOWN" || orientation === "UNKNOWN")) {
       orientation = "PORTRAIT";
       this.setState({orientation})
     } else if (orientation) {
@@ -79,7 +79,7 @@ class Epub extends Component<{}> {
     this._isMounted = false;
 
     AppState.removeEventListener('change', this._handleAppStateChange);
-    Orientation.removeSpecificOrientationListener(this._orientationDidChange);
+    Orientation.removeOrientationListener(this._orientationDidChange);
     clearTimeout(this.orientationTimeout);
 
     this.destroy();
@@ -164,14 +164,14 @@ class Epub extends Component<{}> {
     }
   }
 
-  // LANDSCAPE PORTRAIT UNKNOWN PORTRAITUPSIDEDOWN
+  // LANDSCAPE PORTRAIT UNKNOWN PORTRAIT-UPSIDEDOWN
   _orientationDidChange(orientation) {
     let wait = 10;
     let _orientation = orientation;
 
     if(!this.active || !this._isMounted) return;
 
-    if (orientation === "PORTRAITUPSIDEDOWN" || orientation === "UNKNOWN") {
+    if (orientation === "PORTRAIT-UPSIDEDOWN" || orientation === "UNKNOWN") {
       _orientation = "PORTRAIT";
     }
 
