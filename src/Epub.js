@@ -146,6 +146,9 @@ class Epub extends Component<{}> {
       return true;
     }
 
+    if(nextProps.location != this.props.location)
+      return true;
+
     return false;
   }
 
