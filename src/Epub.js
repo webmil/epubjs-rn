@@ -317,6 +317,8 @@ class Epub extends Component<{}> {
     }
   }
 
+  display = x => this.rendition.display(x)
+
   render() {
     return (
       <Rendition
