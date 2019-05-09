@@ -241,7 +241,7 @@ class Epub extends Component<{}> {
 
     this.book.ready.then(() => {
       this.isReady = true;
-      this.props.onReady && this.props.onReady(this.book);
+      // this.props.onReady && this.props.onReady(this.book);
     });
 
     this.book.loaded.navigation.then((nav) => {
@@ -254,7 +254,8 @@ class Epub extends Component<{}> {
       this.loadLocations().then((locations) => {
         this.rendition.setLocations(locations);
         // this.rendition.reportLocation();
-        this.props.onLocationsReady && this.props.onLocationsReady(this.book.locations);
+        // this.props.onLocationsReady && this.props.onLocationsReady(this.book.locations);
+        this.props.onReady && this.props.onReady(this.book);
       });
     }
 
