@@ -260,7 +260,7 @@ window.onerror = function (message, file, line, col, error) {
         overflow: "visible",
         method: "blobUrl",
         fullsize: true,
-        snap: isChrome
+        snap: true,
       }, options);
 
       window.book = book = ePub(url);
