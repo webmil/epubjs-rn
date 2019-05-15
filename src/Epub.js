@@ -317,6 +317,8 @@ class Epub extends Component<{}> {
   }
 
   display = x => this.rendition.display(x)
+  clearCachedLocations = () =>
+    AsyncStorage.removeItem(this.book.key()+'locations')
 
   render() {
     return (
